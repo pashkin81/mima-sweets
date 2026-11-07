@@ -2,42 +2,63 @@
   רשימת המאפים של מי-מה מתוקים
   ================================
 
-  כל שורה היא מאפה אחד. אפשר לשנות כאן מחיר, שם, תמונה או סוג.
+  כל שורה היא מאפה אחד. אפשר לשנות כאן מחיר, שם, תיאור, תמונה או סוג.
 
   name  - שם המאפה, כמו שיופיע באתר
+  desc  - שורת תיאור קצרה מתחת לשם
   cat   - הסוג: 'עוגיות' / 'עוגות' / 'מאפים' / 'קינוחים'
+  badge - תגית על התמונה, למשל 'הכי אהוב'. ריק ('') = בלי תגית
   price - המחיר בשקלים, רק המספר. למשל: price: 45
           כל עוד כתוב '' (ריק) - יופיע "[מחיר] ₪"
   unit  - בשביל מה המחיר. למשל: 'למגש של 12' או 'ליחידה' או 'לעוגה שלמה'
   img   - שם קובץ התמונה מתוך התיקייה images. ריק = מסגרת בלי תמונה
 
-  9 המאפים הראשונים ברשימה מופיעים באתר לפני שלוחצים "לכל המאפים".
+  הסדר ברשימה הוא הסדר באתר. המאפים הראשונים מופיעים לפני שלוחצים "לכל המאפים"
+  (כמה בדיוק - בהגדרות למטה).
   כדי להוסיף מאפה: מעתיקים שורה, משנים את הפרטים, ושמים את התמונה בתיקייה images.
 */
 
 window.PRODUCTS = [
-  { name: "עוגיות שוקולד צ'יפס",  cat: 'עוגיות',  price: '', unit: '', img: 'choc-chip-cookies.jpg' },
-  { name: 'עוגיות שיבולת שועל',  cat: 'עוגיות',  price: '', unit: '', img: 'oat-cookies.jpg' },
-  { name: 'מגולגלות שוקולד',     cat: 'מאפים',   price: '', unit: '', img: 'chocolate-rolls.jpg' },
-  { name: 'עוגיות הר געש',       cat: 'עוגיות',  price: '', unit: '', img: 'volcano-cookies.jpg' },
-  { name: 'פאי לימון',           cat: 'עוגות',   price: '', unit: '', img: 'lemon-pie.jpg' },
-  { name: 'טרמיסו',              cat: 'קינוחים', price: '', unit: '', img: 'tiramisu.jpg' },
-  { name: 'סינבון',              cat: 'מאפים',   price: '', unit: '', img: 'cinnabon.jpg' },
-  { name: 'שוקולד דובאי',        cat: 'קינוחים', price: '', unit: '', img: 'dubai-chocolate.jpg' },
-  { name: 'עוגת שוקולד',         cat: 'עוגות',   price: '', unit: '', img: 'chocolate-cake.jpg' },
-  { name: 'עוגת קרם ברולה',      cat: 'עוגות',   price: '', unit: '', img: 'creme-brulee-cake.jpg' },
-  { name: 'עוגת גבינה',          cat: 'עוגות',   price: '', unit: '', img: 'cheesecake.jpg' },
-  { name: 'בראוניז',             cat: 'עוגות',   price: '', unit: '', img: 'brownies.jpg' },
-  { name: 'קאפקייקס',            cat: 'עוגות',   price: '', unit: '', img: 'cupcakes.jpg' },
-  { name: 'עוגיות רד וולווט',    cat: 'עוגיות',  price: '', unit: '', img: 'red-velvet-cookies.jpg' },
-  { name: 'עוגיות גרנולה',       cat: 'עוגיות',  price: '', unit: '', img: 'granola-cookies.jpg' },
-  { name: 'אלפחורס',             cat: 'עוגיות',  price: '', unit: '', img: 'alfajores.jpg' },
-  { name: 'חלות',                cat: 'מאפים',   price: '', unit: '', img: 'challah.jpg' },
-  { name: 'כדורי שוקולד',        cat: 'קינוחים', price: '', unit: '', img: 'chocolate-balls.jpg' },
-  { name: 'קינוחי כוסות',        cat: 'קינוחים', price: '', unit: '', img: 'dessert-cups.jpg' },
-  { name: 'פאנקייקים וקרפים',    cat: 'קינוחים', price: '', unit: '', img: 'pancakes-crepes.jpg' },
-  { name: 'עוגיות אמסטרדם',      cat: 'עוגיות',  price: '', unit: '', img: '' }
+  { name: "עוגיות שוקולד צ'יפס", desc: 'רכות באמצע, פריכות בקצוות, ועם הרבה שוקולד צ\'יפס.', cat: 'עוגיות', badge: 'הכי אהוב', price: '', unit: '', img: 'choc-chip-cookies.jpg' },
+  { name: 'מגולגלות שוקולד', desc: 'בצק פריך מגולגל עם מילוי שוקולד, ושוקולד לטבילה בצד.', cat: 'מאפים', badge: 'הבחירה שלנו', price: '', unit: '', img: 'chocolate-rolls.jpg' },
+  { name: 'שוקולד דובאי', desc: 'שוקולד במילוי קדאיף פריך וקרם פיסטוק.', cat: 'קינוחים', badge: 'להיט', price: '', unit: '', img: 'dubai-chocolate.jpg' },
+  { name: 'עוגיות שיבולת שועל', desc: 'עוגייה ביתית עם שיבולת שועל, רכה ומשביעה.', cat: 'עוגיות', badge: '', price: '', unit: '', img: 'oat-cookies.jpg' },
+  { name: 'עוגיות הר געש', desc: 'עוגיות שוקולד סדוקות, מגולגלות באבקת סוכר.', cat: 'עוגיות', badge: '', price: '', unit: '', img: 'volcano-cookies.jpg' },
+  { name: 'פאי לימון', desc: 'בסיס פריך, קרם לימון חמצמץ ומרנג קלוי.', cat: 'עוגות', badge: '', price: '', unit: '', img: 'lemon-pie.jpg' },
+  { name: 'טרמיסו', desc: 'בישקוטים טבולים בקפה, קרם מסקרפונה וקקאו מלמעלה.', cat: 'קינוחים', badge: '', price: '', unit: '', img: 'tiramisu.jpg' },
+  { name: 'סינבון', desc: 'לחמניות שמרים רכות עם קינמון וזיגוג.', cat: 'מאפים', badge: '', price: '', unit: '', img: 'cinnabon.jpg' },
+  { name: 'עוגת שוקולד', desc: 'עוגת שוקולד עשירה עם ציפוי שוקולד.', cat: 'עוגות', badge: '', price: '', unit: '', img: 'chocolate-cake.jpg' },
+  { name: 'עוגת קרם ברולה', desc: 'עוגת קרם עם שכבת סוכר מקורמל מלמעלה.', cat: 'עוגות', badge: '', price: '', unit: '', img: 'creme-brulee-cake.jpg' },
+  { name: 'עוגת גבינה', desc: 'עוגת גבינה אפויה וקרמית על בסיס פריך.', cat: 'עוגות', badge: '', price: '', unit: '', img: 'cheesecake.jpg' },
+  { name: 'בראוניז', desc: 'ריבועי שוקולד דחוסים ועסיסיים.', cat: 'עוגות', badge: '', price: '', unit: '', img: 'brownies.jpg' },
+  { name: 'קאפקייקס', desc: 'קאפקייקס רכים עם קרם מלמעלה.', cat: 'עוגות', badge: '', price: '', unit: '', img: 'cupcakes.jpg' },
+  { name: 'עוגיות רד וולווט', desc: 'עוגיות אדומות ורכות עם שוקולד לבן.', cat: 'עוגיות', badge: '', price: '', unit: '', img: 'red-velvet-cookies.jpg' },
+  { name: 'עוגיות גרנולה', desc: 'עוגיות פריכות עם גרנולה.', cat: 'עוגיות', badge: '', price: '', unit: '', img: 'granola-cookies.jpg' },
+  { name: 'אלפחורס', desc: 'שתי עוגיות רכות עם ריבת חלב באמצע וקוקוס מסביב.', cat: 'עוגיות', badge: '', price: '', unit: '', img: 'alfajores.jpg' },
+  { name: 'חלות', desc: 'חלה קלועה, רכה ומבריקה.', cat: 'מאפים', badge: '', price: '', unit: '', img: 'challah.jpg' },
+  { name: 'כדורי שוקולד', desc: 'כדורי שוקולד ביתיים בציפוי סוכריות או קוקוס.', cat: 'קינוחים', badge: '', price: '', unit: '', img: 'chocolate-balls.jpg' },
+  { name: 'קינוחי כוסות', desc: 'שכבות של קרם, עוגה ושוקולד בכוס אישית.', cat: 'קינוחים', badge: '', price: '', unit: '', img: 'dessert-cups.jpg' },
+  { name: 'פאנקייקים וקרפים', desc: 'פאנקייקים אווריריים וקרפים דקים.', cat: 'קינוחים', badge: '', price: '', unit: '', img: 'pancakes-crepes.jpg' },
+  { name: 'עוגיות אמסטרדם', desc: 'עוגייה גדולה ועבה, רכה מבפנים.', cat: 'עוגיות', badge: '', price: '', unit: '', img: '' }
 ];
 
-/* מספר הוואטסאפ שאליו נשלחות ההזמנות (בלי 0 בהתחלה, עם 972) */
-window.WHATSAPP_NUMBER = '972546235236';
+/*
+  ביקורות של לקוחות
+  ==================
+  כל עוד הרשימה ריקה, אזור הביקורות לא מופיע באתר.
+  רק ביקורות אמיתיות, במילים של הלקוח, ובאישור שלו.
+  דוגמה למבנה:
+  { name: 'שם פרטי', place: 'מודיעין', item: 'שם המאפה', text: 'מה הלקוח כתב' }
+*/
+window.REVIEWS = [
+];
+
+/* הגדרות כלליות */
+window.SITE = {
+  whatsapp: '972546235236',      // מספר הוואטסאפ להזמנות (בלי 0 בהתחלה, עם 972)
+  leadDays: 4,                   // כמה ימים מראש צריך להזמין
+  noPickupDays: [6],             // ימים בלי איסוף: 0=ראשון ... 5=שישי, 6=שבת
+  firstDesktop: 6,               // כמה מאפים מוצגים במחשב לפני "לכל המאפים"
+  firstMobile: 4,                // כמה מאפים מוצגים בטלפון לפני "לכל המאפים"
+  payment: 'ביט או פייבוקס'      // איך משלמים - מופיע בשאלות הנפוצות
+};

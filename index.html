@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>מי-מה מתוקים | מאפייה ביתית במודיעין</title>
-<meta name="description" content="מי-מה מתוקים: מאפייה ביתית של מיקה ומתיו. עוגיות, עוגות, מאפים וקינוחים בהזמנה, איסוף ממודיעין, שכונת משואה.">
+<meta name="description" content="מי-מה מתוקים: מאפייה ביתית של מיקה ומתיו. עוגיות, עוגות, מאפים וקינוחים בהזמנה, באיסוף עצמי במודיעין.">
 <meta name="theme-color" content="#F3E8D8">
 <meta property="og:title" content="מי-מה מתוקים">
 <meta property="og:description" content="מאפייה ביתית של מיקה ומתיו. אפינו לכם משהו מתוק.">
@@ -27,6 +27,9 @@
   --tan: #D8BFA3;
   --accent: #8B5E3C;
   --accent-dark: #5A3D27;
+  --pop: #B23A5C;
+  --pop-dark: #7A2340;
+  --error: #A3262A;
   --line: #9C8473;
   --display: 'Fredoka', 'Rubik', sans-serif;
   --hand: 'Amatic SC', cursive;
@@ -37,15 +40,18 @@ html { scroll-behavior: smooth; }
 body { margin: 0; font-family: 'Rubik', system-ui, sans-serif; color: var(--ink); background: var(--ground); overflow-x: hidden; }
 img { max-width: 100%; }
 a { color: inherit; }
+[hidden] { display: none !important; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--pop); outline-offset: 3px; }
 .wrap { max-width: 1320px; margin: 0 auto; padding-inline: var(--gutter); }
 .kicker { font-family: var(--hand); font-weight: 700; font-size: clamp(28px, 2.6vw, 36px); line-height: 1; color: var(--accent); }
 .h2 { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(38px, 4.4vw, 64px); line-height: 1.05; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 12px 28px; border-radius: 999px; font-family: var(--display); font-weight: 600; font-size: 19px; text-decoration: none; cursor: pointer; border: 2px solid var(--accent); transition: transform .15s ease, box-shadow .15s ease; }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(2px); box-shadow: none !important; }
-.btn-primary { background: var(--accent); color: #fff; box-shadow: 0 5px 0 var(--accent-dark); }
+.btn-primary { background: var(--pop); border-color: var(--pop); color: #fff; box-shadow: 0 5px 0 var(--pop-dark); }
 .btn-ghost { background: #fff; color: var(--ink); box-shadow: 0 5px 0 var(--tan); }
 .sprinkle { position: absolute; height: 7px; border-radius: 7px; pointer-events: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Sticker logo */
 .sticker { display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; background: var(--accent); transform: rotate(-8deg); box-shadow: 0 3px 0 rgba(43, 26, 18, .2); outline: 1.5px dashed rgba(255, 255, 255, .75); text-decoration: none; }
@@ -64,7 +70,8 @@ a { color: inherit; }
 .nav { display: flex; gap: 4px; }
 .nav a { padding: 12px 16px; text-decoration: none; font-weight: 500; font-size: 17px; border-radius: 999px; }
 .nav a:hover { background: rgba(255, 255, 255, .6); }
-.header-cta { min-height: 44px; padding: 8px 20px; font-size: 17px; box-shadow: 0 3px 0 var(--accent-dark); }
+.header-cta { min-height: 44px; padding: 8px 20px; font-size: 17px; box-shadow: 0 3px 0 var(--pop-dark); }
+.cart-count { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 999px; background: #fff; color: var(--pop); font-size: 14px; font-weight: 700; }
 @media (max-width: 860px) { .nav { display: none; } }
 
 /* Hero */
@@ -88,6 +95,24 @@ a { color: inherit; }
 .mini-polaroid div { font-family: var(--hand); font-weight: 700; font-size: 26px; text-align: center; line-height: 1.3; }
 .tape { position: absolute; top: -12px; left: 50%; width: 90px; height: 24px; transform: translateX(-50%) rotate(3deg); background: rgba(201, 162, 126, .5); }
 
+@media (max-width: 640px) {
+  .hero .wrap { padding-block: 18px 30px; gap: 22px; }
+  .hero-art { order: -1; flex: 1 1 100%; height: 240px; }
+  .hero-blob { right: 0; bottom: 0; border-radius: 32px; }
+  .stamp { width: 82px; height: 82px; font-size: 14px; top: -8px; right: -6px; outline-offset: -6px; }
+  .mini-polaroid { width: 96px; bottom: -14px; left: 8px; padding: 6px 6px 2px; }
+  .mini-polaroid div { font-size: 17px; }
+  .mini-polaroid .tape { width: 56px; height: 16px; top: -8px; }
+  .hero-text { flex: 1 1 100%; gap: 14px; }
+  .hero-text .kicker { font-size: 26px; }
+  .hero h1 { font-size: 42px; }
+  .hero p { font-size: 17px; line-height: 1.55; }
+  .hero-actions { gap: 12px; }
+  .hero-actions .btn { flex: 1 1 100%; min-height: 52px; font-size: 18px; }
+  .chips { gap: 8px; padding-top: 0; }
+  .chip { font-size: 14px; padding: 6px 12px; }
+}
+
 /* Drip + ribbon */
 .drip { display: block; width: 100%; height: 56px; margin-top: -1px; }
 .ribbon-wrap { overflow: hidden; padding: 20px 0 12px; }
@@ -97,28 +122,39 @@ a { color: inherit; }
 .ribbon span:nth-child(3n+2)::after { background: var(--accent); }
 
 /* Gallery */
-.gallery { display: flex; flex-direction: column; gap: clamp(32px, 3.5vw, 52px); padding-block: clamp(48px, 6vw, 88px) clamp(64px, 7vw, 104px); }
+.gallery { display: flex; flex-direction: column; gap: clamp(28px, 3.5vw, 52px); padding-block: clamp(40px, 6vw, 88px) clamp(56px, 7vw, 104px); }
 .gallery-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; }
 .gallery-head > div:not(.filters) { display: flex; flex-direction: column; gap: 8px; }
 .gallery-head p { margin: 0; font-size: 18px; color: var(--muted); }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; }
-.filters button { min-height: 46px; padding: 8px 20px; border-radius: 999px; border: 2px solid var(--caramel); background: #fff; color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 17px; cursor: pointer; }
+.filters button { min-height: 46px; padding: 8px 20px; border-radius: 999px; border: 2px solid var(--caramel); background: #fff; color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 17px; cursor: pointer; white-space: nowrap; }
 .filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 3vw, 44px); }
-.card { position: relative; background: #fff; padding: 14px 14px 20px; border-radius: 8px; box-shadow: 0 16px 36px rgba(90, 61, 39, .10); display: flex; flex-direction: column; gap: 16px; transition: transform .2s ease, box-shadow .2s ease; }
-.card:hover { transform: rotate(0deg) translateY(-4px) !important; box-shadow: 0 22px 44px rgba(90, 61, 39, .16); }
-.card .tape { width: 96px; height: 26px; }
-.card-photo { position: relative; aspect-ratio: 5 / 4; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); overflow: hidden; }
+@media (max-width: 640px) {
+  .gallery-head > div:not(.filters) { flex: 1 1 100%; }
+  .filters { flex: 1 1 100%; flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(var(--gutter) * -1); padding: 4px var(--gutter); scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters button { flex: 0 0 auto; min-height: 44px; padding: 6px 18px; font-size: 16px; }
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: clamp(24px, 3vw, 40px); }
+.card { position: relative; background: #fff; padding: 12px 12px 18px; border-radius: 10px; box-shadow: 0 12px 30px rgba(90, 61, 39, .09); display: flex; flex-direction: column; gap: 14px; transition: transform .2s ease, box-shadow .2s ease; }
+.card:hover { transform: translateY(-4px) !important; box-shadow: 0 20px 40px rgba(90, 61, 39, .14); }
+.card-photo { position: relative; aspect-ratio: 5 / 4; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); overflow: hidden; }
 .card-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .card-cat { position: absolute; top: 12px; right: 12px; padding: 4px 12px; border-radius: 999px; background: #fff; font-size: 14px; font-weight: 500; color: var(--ink); }
-.card-body { padding: 0 6px; display: flex; flex-direction: column; gap: 10px; }
+.card-badge { position: absolute; top: 12px; left: 12px; padding: 4px 12px; border-radius: 999px; background: var(--pop); color: #fff; font-family: var(--display); font-size: 15px; font-weight: 600; transform: rotate(-3deg); box-shadow: 0 3px 0 var(--pop-dark); }
+.card-body { padding: 0 6px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .card h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1.2; }
-.card-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.card-desc { margin: 0; font-size: 16px; line-height: 1.5; color: var(--muted); }
+.card-row { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
 .price { display: flex; align-items: baseline; gap: 8px; }
 .price b { font-family: var(--display); font-weight: 700; font-size: 28px; color: var(--accent); }
 .price span { font-size: 15px; color: var(--muted); }
-.card-order { min-height: 44px; padding: 8px 20px; font-size: 16px; background: #fff; color: var(--accent); }
-.more { align-self: center; }
+.card-add { min-height: 44px; padding: 8px 18px; font-size: 16px; background: #fff; color: var(--accent); }
+.card-add.in { background: var(--latte); border-color: var(--accent); color: var(--accent-dark); }
+.gallery-foot { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.cart-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 18px; padding: 14px 22px; border-radius: 999px; background: var(--latte); font-weight: 500; }
+.cart-bar .btn { min-height: 46px; padding: 8px 22px; font-size: 17px; }
+.disclaimer { margin: 0; font-size: 14px; color: var(--muted); text-align: center; }
 
 /* Bento */
 .bento { padding-bottom: clamp(64px, 7vw, 104px); }
@@ -127,6 +163,15 @@ a { color: inherit; }
 .bento-text { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
 .bento-text h2 { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(32px, 3.6vw, 52px); line-height: 1.08; }
 .bento-text p { margin: 0; font-size: 18px; line-height: 1.65; color: var(--muted-2); }
+
+/* Reviews */
+.reviews { display: flex; flex-direction: column; gap: clamp(24px, 3vw, 40px); padding-bottom: clamp(64px, 7vw, 104px); }
+.reviews-head { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.review-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(20px, 2.6vw, 32px); }
+.review { margin: 0; background: #fff; border: 1.5px solid var(--tan); border-radius: 28px; padding: 26px 28px; display: flex; flex-direction: column; gap: 14px; }
+.review blockquote { margin: 0; font-size: 19px; line-height: 1.6; }
+.review figcaption { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; color: var(--muted); font-size: 15px; }
+.review figcaption b { font-family: var(--display); font-weight: 600; font-size: 19px; color: var(--ink); }
 
 /* Bakers */
 .bakers-box { background: #fff; border: 1px solid #E9D9C3; border-radius: clamp(28px, 4vw, 56px); padding: clamp(40px, 6vw, 88px) clamp(20px, 5vw, 80px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(36px, 5vw, 80px); }
@@ -139,9 +184,6 @@ a { color: inherit; }
 .polaroid .tape { width: 110px; height: 26px; top: -13px; transform: translateX(-50%) rotate(-3deg); }
 .polaroid img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; }
 .polaroid .names { font-family: var(--hand); font-weight: 700; font-size: 44px; line-height: 1.1; text-align: center; }
-.ages { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-.ages span { padding: 4px 12px; border-radius: 999px; background: var(--latte); font-size: 14px; }
-.ages span + span { background: #EADBC6; }
 
 /* How */
 .how { display: flex; flex-direction: column; gap: clamp(32px, 3.5vw, 52px); padding-block: clamp(64px, 8vw, 120px); }
@@ -153,6 +195,17 @@ a { color: inherit; }
 .step:nth-child(3) .step-num { background: var(--tan); }
 .step h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 26px; }
 .step p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); }
+
+/* FAQ */
+.faq { display: flex; flex-direction: column; gap: clamp(24px, 3vw, 40px); padding-bottom: clamp(64px, 8vw, 120px); }
+.faq-head { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.faq-list { width: 100%; max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq details { background: #fff; border: 1.5px solid var(--tan); border-radius: 22px; }
+.faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 24px; font-family: var(--display); font-weight: 600; font-size: 20px; border-radius: 22px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; flex: 0 0 32px; height: 32px; border-radius: 50%; background: var(--latte); display: flex; align-items: center; justify-content: center; font-size: 22px; line-height: 1; }
+.faq details[open] summary::after { content: '−'; }
+.faq details p { margin: 0; padding: 0 24px 20px; font-size: 17px; line-height: 1.65; color: var(--muted-2); }
 
 /* Order */
 .order { padding-bottom: clamp(64px, 8vw, 120px); }
@@ -170,12 +223,34 @@ a { color: inherit; }
 .form { position: relative; flex: 1 1 480px; min-width: 0; background: #fff; border: 1.5px solid var(--tan); border-radius: 28px; padding: clamp(20px, 3vw, 36px); box-shadow: -8px 8px 0 var(--tan); display: flex; flex-direction: column; gap: 18px; }
 .form h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 26px; }
 .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; }
-.form label { display: flex; flex-direction: column; gap: 6px; font-size: 16px; font-weight: 500; }
+.form label, .field-label { display: flex; flex-direction: column; gap: 6px; font-size: 16px; font-weight: 500; }
 .form input, .form select, .form textarea { font: inherit; font-weight: 400; min-height: 52px; padding: 10px 14px; border: 2px solid var(--line); border-radius: 14px; background: var(--ground); color: var(--ink); }
 .form textarea { resize: vertical; min-height: 96px; }
 .form input:focus, .form select:focus, .form textarea:focus { outline: 3px solid var(--caramel); outline-offset: 1px; }
-.form .btn { min-height: 56px; font-size: 20px; border: none; }
-.form-note { margin: 0; font-size: 14px; color: var(--muted); text-align: center; }
+.form [aria-invalid="true"] { border-color: var(--error); background: #FFF6F5; }
+.hint { font-size: 14px; font-weight: 400; color: var(--muted); }
+.err { margin: 0; font-size: 15px; font-weight: 500; color: var(--error); }
+.form .btn-primary { min-height: 56px; font-size: 20px; border: none; }
+.form-note { margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted); text-align: center; }
+.form-note b { color: var(--ink); }
+
+/* Order list */
+.order-items { display: flex; flex-direction: column; gap: 10px; }
+.order-empty { margin: 0; padding: 16px; border: 2px dashed var(--tan); border-radius: 16px; color: var(--muted); font-size: 16px; text-align: center; }
+.order-empty a { color: var(--accent); font-weight: 500; }
+.order-empty[aria-invalid="true"] { border-color: var(--error); }
+.oi { display: flex; align-items: center; gap: 12px; padding: 8px; padding-inline-end: 12px; border-radius: 16px; background: var(--ground); border: 1.5px solid #E9D9C3; }
+.oi-img { flex: 0 0 56px; width: 56px; height: 56px; border-radius: 10px; object-fit: cover; background: var(--latte); }
+.oi-name { flex: 1; min-width: 0; font-weight: 500; font-size: 17px; line-height: 1.3; }
+.qty { display: inline-flex; align-items: center; gap: 2px; background: #fff; border: 1.5px solid var(--tan); border-radius: 999px; }
+.qty button { width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: var(--accent-dark); font-size: 22px; line-height: 1; cursor: pointer; }
+.qty output { min-width: 22px; text-align: center; font-weight: 700; font-size: 17px; }
+.oi-remove { width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); font-size: 22px; cursor: pointer; }
+@media (max-width: 420px) {
+  .oi { flex-wrap: wrap; }
+  .oi-name { flex: 1 1 calc(100% - 80px); }
+  .qty { margin-inline-start: 68px; }
+}
 
 /* Footer */
 .footer { background: var(--tan); }
@@ -202,9 +277,10 @@ a { color: inherit; }
       <a href="#gallery">המאפים</a>
       <a href="#bakers">האופים</a>
       <a href="#how">איך מזמינים</a>
+      <a href="#faq">שאלות</a>
       <a href="#order">צרו קשר</a>
     </nav>
-    <a href="#order" class="btn btn-primary header-cta">להזמנה</a>
+    <a href="#order" class="btn btn-primary header-cta">להזמנה <span class="cart-count" id="cart-count" hidden></span></a>
   </div>
 </header>
 
@@ -219,15 +295,15 @@ a { color: inherit; }
       <p>מאפים ביתיים שאנחנו אופים במטבח שלנו, בדיוק כמו שאנחנו אוהבים לאכול אותם. בוחרים, מזמינים, ואוספים.</p>
       <div class="hero-actions">
         <a href="#gallery" class="btn btn-primary">לגלריית המאפים</a>
-        <a href="#order" class="btn btn-ghost">להזמין עכשיו</a>
+        <a href="#" class="btn btn-ghost" data-wa><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>דברו איתנו בוואטסאפ</a>
       </div>
       <div class="chips">
-        <span class="chip"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>איסוף ממודיעין, שכונת משואה</span>
-        <span class="chip"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>הזמנה 3 ימים מראש</span>
+        <span class="chip"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>איסוף עצמי במודיעין</span>
+        <span class="chip"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>הזמנה <span data-lead></span> ימים מראש</span></span>
       </div>
     </div>
     <div class="hero-art">
-      <div class="hero-blob"><img src="images/chocolate-rolls.jpg" alt="מגולגלות שוקולד בקופסת קרטון, עם שוקולד חלב לטבילה"></div>
+      <div class="hero-blob"><img src="images/chocolate-rolls.jpg" alt="מגולגלות שוקולד בקופסת קרטון, עם שוקולד חלב לטבילה" fetchpriority="high"></div>
       <div class="stamp" aria-hidden="true">נאפה<br>באהבה</div>
       <div class="mini-polaroid">
         <span class="tape" aria-hidden="true"></span>
@@ -247,12 +323,16 @@ a { color: inherit; }
     <div>
       <span class="kicker">מה יצא לנו מהתנור</span>
       <h2 class="h2">המאפים שלנו</h2>
-      <p>בוחרים מאפה, לוחצים על "להזמין", ואנחנו כבר מתחילים לערבב.</p>
+      <p>מוסיפים להזמנה כמה מאפים שרוצים, ושולחים לנו הכל בהודעה אחת.</p>
     </div>
     <div class="filters" id="filters" role="group" aria-label="סינון לפי סוג"></div>
   </div>
   <div class="grid" id="grid"></div>
-  <button type="button" class="btn btn-ghost more" id="more"></button>
+  <div class="gallery-foot">
+    <button type="button" class="btn btn-ghost" id="more"></button>
+    <div class="cart-bar" id="cart-bar" hidden><span id="cart-bar-text"></span><a href="#order" class="btn btn-primary">להשלמת ההזמנה</a></div>
+    <p class="disclaimer">התמונות להמחשה בלבד. כל מאפה נאפה בעבודת יד, ולכן עשוי להיראות קצת אחרת.</p>
+  </div>
 </section>
 
 <section id="bento" class="wrap bento">
@@ -263,8 +343,16 @@ a { color: inherit; }
       <h2>עוגות בנטו</h2>
       <p>עוגות קטנות ומעוצבות בקופסה. רוצים לשמוע ראשונים כשזה מוכן? כתבו לנו.</p>
     </div>
-    <a href="#order" class="btn btn-primary" data-pick="עוגת בנטו (בקרוב)">תעדכנו אותי</a>
+    <a href="#" class="btn btn-primary" data-wa="היי מי-מה מתוקים! תעדכנו אותי כשעוגות הבנטו מוכנות 🙂">תעדכנו אותי</a>
   </div>
+</section>
+
+<section id="reviews" class="wrap reviews" hidden>
+  <div class="reviews-head">
+    <span class="kicker">מה אומרים עלינו</span>
+    <h2 class="h2">לקוחות מספרים</h2>
+  </div>
+  <div class="review-list" id="review-list"></div>
 </section>
 
 <section id="bakers" class="wrap">
@@ -280,7 +368,6 @@ a { color: inherit; }
         <span class="tape" aria-hidden="true"></span>
         <img src="images/kids.jpg" alt="מיקה ומתיו במטבח, ליד המאפים שלהם" loading="lazy">
         <figcaption class="names">מיקה ומתיו</figcaption>
-        <div class="ages"><span>מיקה, גיל 11</span><span>מתיו, גיל 14</span></div>
       </figure>
     </div>
   </div>
@@ -292,9 +379,27 @@ a { color: inherit; }
     <h2 class="h2">איך מזמינים?</h2>
   </div>
   <div class="steps">
-    <div class="step"><span class="step-num">1</span><h3>בוחרים מאפה</h3><p>מהגלריה למעלה, או מספרים לנו על רעיון משלכם.</p></div>
-    <div class="step"><span class="step-num">2</span><h3>שולחים הזמנה</h3><p>בטופס למטה או בוואטסאפ. אנחנו חוזרים אליכם לאישור.</p></div>
-    <div class="step"><span class="step-num">3</span><h3>אוספים ונהנים</h3><p>איסוף ממודיעין, שכונת משואה, 3 ימים אחרי ההזמנה.</p></div>
+    <div class="step"><span class="step-num">1</span><h3>בוחרים מאפים</h3><p>מוסיפים להזמנה מהגלריה, כמה סוגים שרוצים.</p></div>
+    <div class="step"><span class="step-num">2</span><h3>שולחים בוואטסאפ</h3><p>הטופס מכין הודעה מוכנה. אנחנו חוזרים אליכם לאישור ההזמנה.</p></div>
+    <div class="step"><span class="step-num">3</span><h3>אוספים ונהנים</h3><p>איסוף עצמי במודיעין, לפחות <span data-lead></span> ימים אחרי ההזמנה, בשעה שנתאם איתכם.</p></div>
+  </div>
+</section>
+
+<section id="faq" class="wrap faq">
+  <div class="faq-head">
+    <span class="kicker">לפני שמזמינים</span>
+    <h2 class="h2">שאלות נפוצות</h2>
+  </div>
+  <div class="faq-list">
+    <details><summary>כמה זמן מראש צריך להזמין?</summary><p>לפחות <span data-lead></span> ימים מראש. אנחנו אופים אחרי בית הספר, ולכן מספר ההזמנות בכל שבוע מוגבל. כדאי להזמין מוקדם.</p></details>
+    <details><summary>מאיפה ומתי אוספים?</summary><p>איסוף עצמי במודיעין. את הכתובת המדויקת נשלח לכם עם אישור ההזמנה, ואת שעת האיסוף נתאם איתכם בטלפון. אין איסוף בשבת.</p></details>
+    <details><summary>איך משלמים?</summary><p data-payment></p></details>
+    <details><summary>מתי ההזמנה מאושרת?</summary><p>אחרי ששולחים לנו את ההזמנה בוואטסאפ, אנחנו חוזרים אליכם עם הודעה. ההזמנה מאושרת רק אחרי שענינו לכם.</p></details>
+    <details><summary>אפשר לשנות או לבטל הזמנה?</summary><p>כשנחזור אליכם בוואטסאפ, תוכלו לאשר את ההזמנה, לשנות או לבטל. אחרי האישור, כל שינוי בתיאום איתנו.</p></details>
+    <details><summary>יש מינימום הזמנה?</summary><p>תלוי במאפה. נעדכן אתכם כשנחזור לאשר את ההזמנה.</p></details>
+    <details><summary>המאפים כשרים?</summary><p>מטבח ביתי, לא בהשגחה.</p></details>
+    <details><summary>יש לכם מאפים לאלרגיים?</summary><p>לא. המאפים מכילים את מה שיש במתכון, והמטבח שלנו לא נקי מאלרגנים כמו גלוטן, ביצים, חלב ואגוזים. אנחנו לא מכינים גרסאות מותאמות לאלרגיות.</p></details>
+    <details><summary>אפשר להזמין לאירועים?</summary><p>כרגע לא.</p></details>
   </div>
 </section>
 
@@ -305,7 +410,7 @@ a { color: inherit; }
       <div>
         <span class="kicker">בואו נאפה לכם משהו</span>
         <h2 class="h2">רוצים להזמין?</h2>
-        <p>ממלאים את הטופס או כותבים לנו בוואטסאפ, ואנחנו חוזרים אליכם לאישור ההזמנה.</p>
+        <p>ממלאים את הטופס או כותבים לנו בוואטסאפ, ואנחנו חוזרים אליכם לאישור ההזמנה. מספר ההזמנות בכל שבוע מוגבל.</p>
       </div>
       <ul class="contact">
         <li>
@@ -314,27 +419,42 @@ a { color: inherit; }
         </li>
         <li>
           <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span><small>איסוף עצמי</small><strong>מודיעין, שכונת משואה</strong></span>
+          <span><small>איסוף עצמי</small><strong>מודיעין</strong><small>הכתובת המדויקת תישלח עם אישור ההזמנה</small></span>
         </li>
         <li>
           <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-          <span><small>כמה זמן מראש</small><strong>3 ימים לפני</strong></span>
+          <span><small>כמה זמן מראש</small><strong>לפחות <span data-lead></span> ימים לפני</strong></span>
         </li>
       </ul>
-      <a href="https://wa.me/972546235236" class="btn btn-ghost" style="align-self: flex-start;" target="_blank" rel="noopener"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>לכתוב לנו בוואטסאפ</a>
+      <a href="#" class="btn btn-ghost" style="align-self: flex-start;" data-wa><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>לכתוב לנו בוואטסאפ</a>
     </div>
 
     <form class="form" id="order-form" novalidate>
       <h3>טופס הזמנה</h3>
-      <div class="fields">
-        <label>שם מלא<input type="text" name="name" autocomplete="name" required></label>
-        <label>מה בא לכם?<select name="item" id="item-select" required><option value="">בחרו מאפה</option></select></label>
-        <label>כמות<input type="number" name="qty" min="1" value="1"></label>
-        <label>תאריך איסוף<input type="date" name="date" id="date-input"></label>
+
+      <div class="field-label" role="group" aria-labelledby="items-label">
+        <span id="items-label">מה בא לכם?</span>
+        <div class="order-items" id="order-items" aria-live="polite"></div>
+        <p class="err" id="err-items" hidden>נא לבחור לפחות מאפה אחד</p>
       </div>
-      <label>הערות<textarea name="notes" rows="3" placeholder="אלרגיות, הקדשה על העוגה, כל מה שחשוב לדעת"></textarea></label>
+      <label>הוספת מאפה
+        <select id="item-select"><option value="">בחרו מאפה להוספה</option></select>
+      </label>
+
+      <div class="fields">
+        <label>שם מלא
+          <input type="text" name="name" id="name-input" autocomplete="name" aria-describedby="err-name">
+          <span class="err" id="err-name" hidden>נא למלא שם</span>
+        </label>
+        <label>תאריך איסוף
+          <input type="date" name="date" id="date-input" aria-describedby="date-hint err-date">
+          <span class="hint" id="date-hint">שעת האיסוף נקבעת בתיאום טלפוני. אין איסוף בשבת.</span>
+          <span class="err" id="err-date" hidden></span>
+        </label>
+      </div>
+      <label>הערות<textarea name="notes" rows="3" placeholder="הקדשה על העוגה, בקשה מיוחדת, כל מה שחשוב לדעת"></textarea></label>
       <button type="submit" class="btn btn-primary">שליחת ההזמנה בוואטסאפ</button>
-      <p class="form-note">ייפתח וואטסאפ עם ההזמנה מוכנה. נשאר רק ללחוץ "שלח", ואנחנו חוזרים אליכם לאישור ולתיאום תשלום.</p>
+      <p class="form-note">ייפתח וואטסאפ עם ההזמנה מוכנה, ונשאר רק ללחוץ "שלח". <b>ההזמנה מאושרת רק אחרי שנחזור אליכם</b> לאישור ולתיאום תשלום.</p>
     </form>
   </div>
 </section>
@@ -352,21 +472,30 @@ a { color: inherit; }
       <a href="#gallery">המאפים</a>
       <a href="#bakers">האופים</a>
       <a href="#how">איך מזמינים</a>
+      <a href="#faq">שאלות נפוצות</a>
       <a href="#order">צרו קשר</a>
     </nav>
     <span class="copy">© 2026 מי-מה מתוקים</span>
   </div>
 </footer>
 
+<div class="sr-only" id="announce" aria-live="polite"></div>
+
 <script src="products.js"></script>
 <script>
 (function () {
   var products = window.PRODUCTS || [];
-  var phone = window.WHATSAPP_NUMBER || '972546235236';
-  var FIRST = 9;
+  var reviews = window.REVIEWS || [];
+  var SITE = window.SITE || {};
+  var phone = SITE.whatsapp || window.WHATSAPP_NUMBER || '972546235236';
+  var LEAD = SITE.leadDays || 4;
+  var NO_PICKUP = SITE.noPickupDays || [6];
+  var DAY_NAMES = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'];
   var tints = ['#F3E8D8', '#EADBC6', '#F7EFE4', '#E9D9C3', '#EFE2CF'];
-  var tilts = [-1.5, 1.2, -0.7, 1.4, -1.1, 0.9];
+  var tilts = [-0.4, 0.4];
+  var mobileQuery = window.matchMedia('(max-width: 640px)');
   var state = { filter: 'all', showAll: false };
+  var cart = [];
 
   function el(tag, cls, text) {
     var e = document.createElement(tag);
@@ -374,6 +503,18 @@ a { color: inherit; }
     if (text != null) e.textContent = text;
     return e;
   }
+  function waLink(text) { return 'https://wa.me/' + phone + (text ? '?text=' + encodeURIComponent(text) : ''); }
+  function findProduct(name) { for (var i = 0; i < products.length; i++) if (products[i].name === name) return products[i]; return null; }
+  function announce(t) { var a = document.getElementById('announce'); a.textContent = ''; setTimeout(function () { a.textContent = t; }, 30); }
+
+  // Settings into text
+  document.querySelectorAll('[data-lead]').forEach(function (s) { s.textContent = LEAD; });
+  document.querySelectorAll('[data-payment]').forEach(function (p) { p.textContent = (SITE.payment || 'ביט או פייבוקס') + '. את פרטי התשלום נשלח עם אישור ההזמנה.'; });
+  document.querySelectorAll('[data-wa]').forEach(function (a) {
+    a.href = waLink(a.getAttribute('data-wa') || '');
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
 
   // Sprinkles
   var sc = ['#8B5E3C', '#C9A27E', '#FFFFFF', '#B88B62', '#6F4A2F', '#E3D0B8'];
@@ -415,14 +556,11 @@ a { color: inherit; }
   more.textContent = 'לכל ' + products.length + ' המאפים';
   more.addEventListener('click', function () { state.showAll = true; render(); });
 
+  function qtyOf(name) { for (var i = 0; i < cart.length; i++) if (cart[i].name === name) return cart[i].qty; return 0; }
+
   function card(p, n) {
     var a = el('article', 'card');
     a.style.transform = 'rotate(' + tilts[n % tilts.length] + 'deg)';
-    var tape = el('span', 'tape');
-    tape.setAttribute('aria-hidden', 'true');
-    tape.style.background = n % 2 ? 'rgba(216, 191, 163, .7)' : 'rgba(201, 162, 126, .5)';
-    tape.style.transform = 'translateX(-50%) rotate(' + (n % 2 ? 3 : -3) + 'deg)';
-    a.appendChild(tape);
 
     var photo = el('div', 'card-photo');
     photo.style.background = tints[n % tints.length];
@@ -436,80 +574,221 @@ a { color: inherit; }
       photo.appendChild(el('span', null, 'תמונה בקרוב'));
     }
     photo.appendChild(el('span', 'card-cat', p.cat));
+    if (p.badge) photo.appendChild(el('span', 'card-badge', p.badge));
     a.appendChild(photo);
 
     var body = el('div', 'card-body');
     body.appendChild(el('h3', null, p.name));
+    if (p.desc) body.appendChild(el('p', 'card-desc', p.desc));
     var row = el('div', 'card-row');
     var price = el('div', 'price');
     price.appendChild(el('b', null, (p.price !== '' && p.price != null ? p.price : '[מחיר]') + ' ₪'));
     if (p.unit) price.appendChild(el('span', null, p.unit));
     row.appendChild(price);
-    var order = el('a', 'btn card-order', 'להזמין');
-    order.href = '#order';
-    order.dataset.pick = p.name;
-    row.appendChild(order);
+    var add = el('button', 'btn card-add');
+    add.type = 'button';
+    add.dataset.add = p.name;
+    row.appendChild(add);
     body.appendChild(row);
     a.appendChild(body);
     return a;
+  }
+
+  function paintAddButtons() {
+    document.querySelectorAll('[data-add]').forEach(function (b) {
+      var q = qtyOf(b.dataset.add);
+      b.classList.toggle('in', q > 0);
+      b.textContent = q > 0 ? '✓ בהזמנה (' + q + ')' : 'הוספה להזמנה';
+      b.setAttribute('aria-label', q > 0 ? b.dataset.add + ': ' + q + ' בהזמנה. לחצו להוספת עוד אחד' : 'הוספת ' + b.dataset.add + ' להזמנה');
+    });
   }
 
   function render() {
     filtersBox.querySelectorAll('button').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.dataset.cat === state.filter));
     });
+    var first = mobileQuery.matches ? (SITE.firstMobile || 4) : (SITE.firstDesktop || 6);
     var list = products.filter(function (p) { return state.filter === 'all' || p.cat === state.filter; });
-    var limited = state.filter === 'all' && !state.showAll && list.length > FIRST;
-    if (limited) list = list.slice(0, FIRST);
+    var limited = state.filter === 'all' && !state.showAll && list.length > first;
+    if (limited) list = list.slice(0, first);
     grid.innerHTML = '';
     list.forEach(function (p) { grid.appendChild(card(p, products.indexOf(p))); });
     more.hidden = !limited;
+    paintAddButtons();
   }
   render();
+  if (mobileQuery.addEventListener) mobileQuery.addEventListener('change', render);
 
-  // Order form
+  // Reviews (hidden until there are real ones in products.js)
+  if (reviews.length) {
+    var rl = document.getElementById('review-list');
+    reviews.forEach(function (r) {
+      var f = el('figure', 'review');
+      f.appendChild(el('blockquote', null, '״' + r.text + '״'));
+      var cap = el('figcaption');
+      cap.appendChild(el('b', null, r.name));
+      if (r.place) cap.appendChild(el('span', null, r.place));
+      if (r.item) cap.appendChild(el('span', null, '· על ' + r.item));
+      f.appendChild(cap);
+      rl.appendChild(f);
+    });
+    document.getElementById('reviews').hidden = false;
+  }
+
+  // ---------- Order ----------
+  var itemsBox = document.getElementById('order-items');
   var select = document.getElementById('item-select');
+  var errItems = document.getElementById('err-items');
+  var cartCount = document.getElementById('cart-count');
+  var cartBar = document.getElementById('cart-bar');
+  var cartBarText = document.getElementById('cart-bar-text');
+
   products.forEach(function (p) {
     var o = el('option', null, p.name);
     o.value = p.name;
     select.appendChild(o);
   });
-  ['עוגת בנטו (בקרוב)', 'משהו אחר'].forEach(function (t) {
-    var o = el('option', null, t);
-    o.value = t;
-    select.appendChild(o);
-  });
+  var other = el('option', null, 'משהו אחר (נפרט בהערות)');
+  other.value = 'משהו אחר (פירוט בהערות)';
+  select.appendChild(other);
 
-  // Pickup date: earliest is 3 days from today
-  var dateInput = document.getElementById('date-input');
-  var d = new Date();
-  d.setDate(d.getDate() + 3);
-  dateInput.min = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  function addToCart(name, silent) {
+    for (var i = 0; i < cart.length; i++) if (cart[i].name === name) { cart[i].qty++; update(); if (!silent) announce(name + ' נוסף להזמנה. סך הכל ' + cart[i].qty); return; }
+    cart.push({ name: name, qty: 1 });
+    update();
+    if (!silent) announce(name + ' נוסף להזמנה');
+  }
+  function setQty(name, q) {
+    cart = cart.map(function (c) { if (c.name === name) c.qty = q; return c; }).filter(function (c) { return c.qty > 0; });
+    update();
+  }
 
-  // "Order" buttons pre-select the pastry
+  function totalItems() { return cart.reduce(function (s, c) { return s + c.qty; }, 0); }
+
+  function update() {
+    itemsBox.innerHTML = '';
+    if (!cart.length) {
+      var empty = el('p', 'order-empty');
+      empty.id = 'order-empty';
+      empty.appendChild(document.createTextNode('עוד לא בחרתם מאפים. בחרו מה'));
+      var a = el('a', null, 'גלריה');
+      a.href = '#gallery';
+      empty.appendChild(a);
+      empty.appendChild(document.createTextNode(' או מהרשימה כאן למטה.'));
+      itemsBox.appendChild(empty);
+    }
+    cart.forEach(function (c) {
+      var p = findProduct(c.name);
+      var row = el('div', 'oi');
+      if (p && p.img) {
+        var img = el('img', 'oi-img');
+        img.src = 'images/' + p.img;
+        img.alt = '';
+        row.appendChild(img);
+      } else {
+        row.appendChild(el('span', 'oi-img'));
+      }
+      row.appendChild(el('span', 'oi-name', c.name));
+      var q = el('span', 'qty');
+      var minus = el('button', null, '−');
+      minus.type = 'button';
+      minus.setAttribute('aria-label', 'פחות ' + c.name);
+      minus.addEventListener('click', function () { setQty(c.name, c.qty - 1); });
+      var out = el('output', null, String(c.qty));
+      out.setAttribute('aria-label', 'כמות ' + c.name);
+      var plus = el('button', null, '+');
+      plus.type = 'button';
+      plus.setAttribute('aria-label', 'עוד ' + c.name);
+      plus.addEventListener('click', function () { setQty(c.name, c.qty + 1); });
+      q.appendChild(minus); q.appendChild(out); q.appendChild(plus);
+      row.appendChild(q);
+      var rm = el('button', 'oi-remove', '×');
+      rm.type = 'button';
+      rm.setAttribute('aria-label', 'הסרת ' + c.name + ' מההזמנה');
+      rm.addEventListener('click', function () { setQty(c.name, 0); announce(c.name + ' הוסר מההזמנה'); });
+      row.appendChild(rm);
+      itemsBox.appendChild(row);
+    });
+
+    var n = totalItems();
+    cartCount.hidden = n === 0;
+    cartCount.textContent = n;
+    cartBar.hidden = n === 0;
+    cartBarText.textContent = 'בהזמנה שלכם: ' + n + (n === 1 ? ' מאפה' : ' מאפים');
+    if (n > 0) setError(errItems, null, '');
+    paintAddButtons();
+  }
+  update();
+
   document.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-pick]');
-    if (t) select.value = t.dataset.pick;
+    var b = e.target.closest('[data-add]');
+    if (b) addToCart(b.dataset.add);
   });
+  select.addEventListener('change', function () {
+    if (!select.value) return;
+    addToCart(select.value);
+    select.value = '';
+  });
+
+  // Pickup date
+  var dateInput = document.getElementById('date-input');
+  var errDate = document.getElementById('err-date');
+  function iso(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  function heb(d) { return String(d.getDate()).padStart(2, '0') + '/' + String(d.getMonth() + 1).padStart(2, '0') + '/' + d.getFullYear(); }
+  function earliest() {
+    var d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() + LEAD);
+    while (NO_PICKUP.indexOf(d.getDay()) !== -1) d.setDate(d.getDate() + 1);
+    return d;
+  }
+  dateInput.min = iso(earliest());
+  function parseDate(v) { var p = v.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function dateProblem() {
+    if (!dateInput.value) return 'נא לבחור תאריך איסוף';
+    var d = parseDate(dateInput.value);
+    if (d < earliest()) return 'צריך להזמין לפחות ' + LEAD + ' ימים מראש. התאריך הכי קרוב: ' + heb(earliest());
+    if (NO_PICKUP.indexOf(d.getDay()) !== -1) return 'אין איסוף ביום ' + DAY_NAMES[d.getDay()] + '. בחרו יום אחר.';
+    return '';
+  }
+
+  // Errors
+  function setError(errEl, field, msg) {
+    errEl.textContent = msg || errEl.textContent;
+    errEl.hidden = !msg;
+    if (field) field.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  }
+  var nameInput = document.getElementById('name-input');
+  var errName = document.getElementById('err-name');
+  nameInput.addEventListener('input', function () { if (nameInput.value.trim()) setError(errName, nameInput, ''); });
+  dateInput.addEventListener('change', function () { setError(errDate, dateInput, dateProblem()); });
 
   document.getElementById('order-form').addEventListener('submit', function (e) {
     e.preventDefault();
     var f = e.target.elements;
-    if (!f['name'].value.trim()) { f['name'].focus(); return; }
-    if (!f['item'].value) { f['item'].focus(); return; }
-    var lines = [
-      'היי מי-מה מתוקים! אני רוצה להזמין:',
-      '',
-      'שם: ' + f['name'].value.trim(),
-      'מאפה: ' + f['item'].value,
-      'כמות: ' + (f['qty'].value || 1)
-    ];
-    if (f['date'].value) {
-      var parts = f['date'].value.split('-');
-      lines.push('תאריך איסוף: ' + parts[2] + '/' + parts[1] + '/' + parts[0]);
+    var firstBad = null;
+
+    if (!cart.length) {
+      setError(errItems, null, 'נא לבחור לפחות מאפה אחד');
+      var emp = document.getElementById('order-empty');
+      if (emp) emp.setAttribute('aria-invalid', 'true');
+      firstBad = firstBad || select;
     }
+    if (!nameInput.value.trim()) { setError(errName, nameInput, 'נא למלא שם'); firstBad = firstBad || nameInput; }
+    var dp = dateProblem();
+    setError(errDate, dateInput, dp);
+    if (dp) firstBad = firstBad || dateInput;
+
+    if (firstBad) { firstBad.focus(); return; }
+
+    var d = parseDate(dateInput.value);
+    var lines = ['היי מי-מה מתוקים! אני רוצה להזמין:', ''];
+    cart.forEach(function (c) { lines.push('• ' + c.name + ' × ' + c.qty); });
+    lines.push('');
+    lines.push('שם: ' + nameInput.value.trim());
+    lines.push('תאריך איסוף: יום ' + DAY_NAMES[d.getDay()] + ', ' + heb(d));
     if (f['notes'].value.trim()) lines.push('הערות: ' + f['notes'].value.trim());
-    window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+    window.open(waLink(lines.join('\n')), '_blank', 'noopener');
   });
 })();
 </script>
