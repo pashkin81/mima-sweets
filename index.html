@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מי-מה מתוקים | מאפייה ביתית במודיעין</title>
+<meta name="description" content="מי-מה מתוקים: מאפייה ביתית של מיקה ומתיו. עוגיות, עוגות, מאפים וקינוחים בהזמנה, איסוף ממודיעין, שכונת משואה.">
+<meta name="theme-color" content="#F3E8D8">
+<meta property="og:title" content="מי-מה מתוקים">
+<meta property="og:description" content="מאפייה ביתית של מיקה ומתיו. אפינו לכם משהו מתוק.">
+<meta property="og:image" content="images/chocolate-rolls.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%238B5E3C'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial' font-weight='700' font-size='32' fill='%23fff'%3E%D7%9E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Fredoka:wght@500;600;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #3A2A1E;
+  --muted: #6E5747;
+  --muted-2: #5A4535;
+  --ground: #FBF6EE;
+  --latte: #F3E8D8;
+  --sand: #EBDDCB;
+  --caramel: #C9A27E;
+  --tan: #D8BFA3;
+  --accent: #8B5E3C;
+  --accent-dark: #5A3D27;
+  --line: #9C8473;
+  --display: 'Fredoka', 'Rubik', sans-serif;
+  --hand: 'Amatic SC', cursive;
+  --gutter: clamp(16px, 4vw, 48px);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Rubik', system-ui, sans-serif; color: var(--ink); background: var(--ground); overflow-x: hidden; }
+img { max-width: 100%; }
+a { color: inherit; }
+.wrap { max-width: 1320px; margin: 0 auto; padding-inline: var(--gutter); }
+.kicker { font-family: var(--hand); font-weight: 700; font-size: clamp(28px, 2.6vw, 36px); line-height: 1; color: var(--accent); }
+.h2 { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(38px, 4.4vw, 64px); line-height: 1.05; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 12px 28px; border-radius: 999px; font-family: var(--display); font-weight: 600; font-size: 19px; text-decoration: none; cursor: pointer; border: 2px solid var(--accent); transition: transform .15s ease, box-shadow .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(2px); box-shadow: none !important; }
+.btn-primary { background: var(--accent); color: #fff; box-shadow: 0 5px 0 var(--accent-dark); }
+.btn-ghost { background: #fff; color: var(--ink); box-shadow: 0 5px 0 var(--tan); }
+.sprinkle { position: absolute; height: 7px; border-radius: 7px; pointer-events: none; }
+
+/* Sticker logo */
+.sticker { display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; background: var(--accent); transform: rotate(-8deg); box-shadow: 0 3px 0 rgba(43, 26, 18, .2); outline: 1.5px dashed rgba(255, 255, 255, .75); text-decoration: none; }
+.sticker b { font-family: var(--display); font-weight: 700; color: #fff; line-height: 1; }
+.sticker i { font-family: var(--hand); font-style: normal; font-weight: 700; color: var(--latte); line-height: .95; }
+.sticker-sm { width: 64px; height: 64px; outline-offset: -4px; }
+.sticker-sm b { font-size: 17px; }
+.sticker-sm i { font-size: 13px; }
+.sticker-lg { width: 104px; height: 104px; outline-offset: -6px; }
+.sticker-lg b { font-size: 28px; }
+.sticker-lg i { font-size: 21px; }
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 10; background: rgba(243, 232, 216, .95); backdrop-filter: blur(6px); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+.nav { display: flex; gap: 4px; }
+.nav a { padding: 12px 16px; text-decoration: none; font-weight: 500; font-size: 17px; border-radius: 999px; }
+.nav a:hover { background: rgba(255, 255, 255, .6); }
+.header-cta { min-height: 44px; padding: 8px 20px; font-size: 17px; box-shadow: 0 3px 0 var(--accent-dark); }
+@media (max-width: 860px) { .nav { display: none; } }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; background: var(--latte); }
+.hero .wrap { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: clamp(40px, 5vw, 80px); padding-block: clamp(36px, 6vw, 96px) clamp(40px, 5vw, 72px); }
+.hero-text { flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.hero-text .kicker { color: var(--ink); font-size: clamp(30px, 3vw, 40px); }
+.hero h1 { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(46px, 6.4vw, 100px); line-height: 1.04; letter-spacing: -.01em; }
+.hero h1 .hl { position: relative; display: inline-block; color: var(--accent); }
+.hero h1 .hl svg { position: absolute; right: 0; bottom: -.1em; width: 100%; height: .26em; }
+.hero p { margin: 0; max-width: 540px; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.65; color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, .8); font-size: 15px; font-weight: 500; }
+.hero-art { flex: 1 1 420px; min-width: 0; position: relative; height: clamp(360px, 40vw, 600px); }
+.hero-blob { position: absolute; top: 0; right: 4%; bottom: 7%; left: 0; overflow: hidden; border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%; box-shadow: 0 24px 50px rgba(90, 61, 39, .18); }
+.hero-blob img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.stamp { position: absolute; top: 2%; right: 0; width: clamp(108px, 10vw, 148px); height: clamp(108px, 10vw, 148px); border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--display); font-weight: 700; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.1; transform: rotate(12deg); outline: 2px dashed var(--caramel); outline-offset: -9px; box-shadow: 0 6px 0 rgba(90, 61, 39, .15); }
+.mini-polaroid { position: absolute; bottom: 0; left: 2%; width: clamp(140px, 14vw, 196px); background: #fff; padding: 10px 10px 6px; border-radius: 6px; box-shadow: 0 14px 30px rgba(90, 61, 39, .18); transform: rotate(-6deg); }
+.mini-polaroid img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; }
+.mini-polaroid div { font-family: var(--hand); font-weight: 700; font-size: 26px; text-align: center; line-height: 1.3; }
+.tape { position: absolute; top: -12px; left: 50%; width: 90px; height: 24px; transform: translateX(-50%) rotate(3deg); background: rgba(201, 162, 126, .5); }
+
+/* Drip + ribbon */
+.drip { display: block; width: 100%; height: 56px; margin-top: -1px; }
+.ribbon-wrap { overflow: hidden; padding: 20px 0 12px; }
+.ribbon { margin: 0 -6%; transform: rotate(-2deg); background: var(--tan); padding: 14px 0; white-space: nowrap; display: flex; justify-content: center; align-items: center; gap: 26px; font-family: var(--display); font-weight: 600; font-size: clamp(18px, 1.9vw, 26px); }
+.ribbon span { display: inline-flex; align-items: center; gap: 26px; }
+.ribbon span::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: #fff; }
+.ribbon span:nth-child(3n+2)::after { background: var(--accent); }
+
+/* Gallery */
+.gallery { display: flex; flex-direction: column; gap: clamp(32px, 3.5vw, 52px); padding-block: clamp(48px, 6vw, 88px) clamp(64px, 7vw, 104px); }
+.gallery-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; }
+.gallery-head > div { display: flex; flex-direction: column; gap: 8px; }
+.gallery-head p { margin: 0; font-size: 18px; color: var(--muted); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { min-height: 46px; padding: 8px 20px; border-radius: 999px; border: 2px solid var(--caramel); background: #fff; color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 17px; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: clamp(28px, 3vw, 44px); }
+.card { position: relative; background: #fff; padding: 14px 14px 20px; border-radius: 8px; box-shadow: 0 16px 36px rgba(90, 61, 39, .10); display: flex; flex-direction: column; gap: 16px; transition: transform .2s ease, box-shadow .2s ease; }
+.card:hover { transform: rotate(0deg) translateY(-4px) !important; box-shadow: 0 22px 44px rgba(90, 61, 39, .16); }
+.card .tape { width: 96px; height: 26px; }
+.card-photo { position: relative; aspect-ratio: 5 / 4; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); overflow: hidden; }
+.card-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.card-cat { position: absolute; top: 12px; right: 12px; padding: 4px 12px; border-radius: 999px; background: #fff; font-size: 14px; font-weight: 500; color: var(--ink); }
+.card-body { padding: 0 6px; display: flex; flex-direction: column; gap: 10px; }
+.card h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1.2; }
+.card-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.price { display: flex; align-items: baseline; gap: 8px; }
+.price b { font-family: var(--display); font-weight: 700; font-size: 28px; color: var(--accent); }
+.price span { font-size: 15px; color: var(--muted); }
+.card-order { min-height: 44px; padding: 8px 20px; font-size: 16px; background: #fff; color: var(--accent); }
+.more { align-self: center; }
+
+/* Bento */
+.bento { padding-bottom: clamp(64px, 7vw, 104px); }
+.bento-box { border-radius: clamp(28px, 4vw, 56px); background: var(--latte); border: 2px dashed var(--caramel); padding: clamp(28px, 4vw, 56px) clamp(20px, 5vw, 72px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(24px, 4vw, 56px); }
+.soon { flex: 0 0 auto; width: 132px; height: 132px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 700; font-size: 28px; transform: rotate(-10deg); outline: 2px dashed rgba(255, 255, 255, .75); outline-offset: -8px; box-shadow: 0 6px 0 rgba(90, 61, 39, .2); }
+.bento-text { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.bento-text h2 { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(32px, 3.6vw, 52px); line-height: 1.08; }
+.bento-text p { margin: 0; font-size: 18px; line-height: 1.65; color: var(--muted-2); }
+
+/* Bakers */
+.bakers-box { background: #fff; border: 1px solid #E9D9C3; border-radius: clamp(28px, 4vw, 56px); padding: clamp(40px, 6vw, 88px) clamp(20px, 5vw, 80px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(36px, 5vw, 80px); }
+.bakers-text { flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.bakers-text .kicker { color: var(--ink); }
+.bakers-text p { margin: 0; font-size: 18px; line-height: 1.7; color: var(--muted-2); }
+.bakers-text .quote { margin-top: 8px; font-family: var(--hand); font-weight: 700; font-size: clamp(30px, 2.8vw, 40px); line-height: 1.2; color: var(--ink); }
+.bakers-photo { flex: 1 1 440px; min-width: 0; display: flex; justify-content: center; }
+.polaroid { position: relative; width: 100%; max-width: 560px; background: #fff; padding: 14px 14px 18px; border-radius: 6px; box-shadow: 0 18px 38px rgba(90, 61, 39, .16); transform: rotate(-2deg); display: flex; flex-direction: column; gap: 8px; }
+.polaroid .tape { width: 110px; height: 26px; top: -13px; transform: translateX(-50%) rotate(-3deg); }
+.polaroid img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; }
+.polaroid .names { font-family: var(--hand); font-weight: 700; font-size: 44px; line-height: 1.1; text-align: center; }
+.ages { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.ages span { padding: 4px 12px; border-radius: 999px; background: var(--latte); font-size: 14px; }
+.ages span + span { background: #EADBC6; }
+
+/* How */
+.how { display: flex; flex-direction: column; gap: clamp(32px, 3.5vw, 52px); padding-block: clamp(64px, 8vw, 120px); }
+.how-head { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: clamp(24px, 2.6vw, 36px); }
+.step { background: #fff; border: 1.5px solid var(--tan); border-radius: 28px; padding: 28px; box-shadow: -7px 7px 0 #E9D9C3; display: flex; flex-direction: column; gap: 12px; }
+.step-num { width: 64px; height: 64px; border-radius: 50%; background: var(--latte); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 700; font-size: 32px; }
+.step:nth-child(2) .step-num { background: #EADBC6; }
+.step:nth-child(3) .step-num { background: var(--tan); }
+.step h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 26px; }
+.step p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); }
+
+/* Order */
+.order { padding-bottom: clamp(64px, 8vw, 120px); }
+.order-box { position: relative; overflow: hidden; background: var(--sand); border-radius: clamp(28px, 4vw, 56px); padding: clamp(28px, 5vw, 80px) clamp(18px, 5vw, 80px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: clamp(36px, 5vw, 72px); }
+.order-info { position: relative; flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.order-info .kicker { color: var(--ink); }
+.order-info > div { display: flex; flex-direction: column; gap: 10px; }
+.order-info p { margin: 0; font-size: 18px; line-height: 1.65; color: var(--muted-2); }
+.contact { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.contact li { display: flex; align-items: center; gap: 14px; }
+.contact .ic { flex: 0 0 48px; width: 48px; height: 48px; border-radius: 50%; background: #fff; color: var(--accent); display: flex; align-items: center; justify-content: center; }
+.contact small { display: block; font-size: 14px; color: var(--muted-2); }
+.contact strong { display: block; font-family: var(--display); font-size: 20px; font-weight: 600; }
+.contact a { text-decoration: none; }
+.form { position: relative; flex: 1 1 480px; min-width: 0; background: #fff; border: 1.5px solid var(--tan); border-radius: 28px; padding: clamp(20px, 3vw, 36px); box-shadow: -8px 8px 0 var(--tan); display: flex; flex-direction: column; gap: 18px; }
+.form h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 26px; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; }
+.form label { display: flex; flex-direction: column; gap: 6px; font-size: 16px; font-weight: 500; }
+.form input, .form select, .form textarea { font: inherit; font-weight: 400; min-height: 52px; padding: 10px 14px; border: 2px solid var(--line); border-radius: 14px; background: var(--ground); color: var(--ink); }
+.form textarea { resize: vertical; min-height: 96px; }
+.form input:focus, .form select:focus, .form textarea:focus { outline: 3px solid var(--caramel); outline-offset: 1px; }
+.form .btn { min-height: 56px; font-size: 20px; border: none; }
+.form-note { margin: 0; font-size: 14px; color: var(--muted); text-align: center; }
+
+/* Footer */
+.footer { background: var(--tan); }
+.scallop { height: 22px; background: radial-gradient(circle at 11px 0, var(--ground) 11px, transparent 11.5px) repeat-x; background-size: 22px 22px; }
+.footer .wrap { padding-block: 36px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.footer-brand { display: flex; align-items: center; gap: 18px; }
+.footer-brand span { font-family: var(--hand); font-weight: 700; font-size: 30px; color: var(--accent-dark); }
+.footer nav { display: flex; flex-wrap: wrap; gap: 4px; }
+.footer nav a { padding: 12px 14px; text-decoration: none; font-size: 16px; }
+.footer .copy { flex-basis: 100%; font-size: 14px; color: var(--muted-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .card { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="sticker sticker-sm" aria-label="מי-מה מתוקים, לראש הדף"><b>מי-מה</b><i>מתוקים</i></a>
+    <nav class="nav" aria-label="תפריט ראשי">
+      <a href="#gallery">המאפים</a>
+      <a href="#bakers">האופים</a>
+      <a href="#how">איך מזמינים</a>
+      <a href="#order">צרו קשר</a>
+    </nav>
+    <a href="#order" class="btn btn-primary header-cta">להזמנה</a>
+  </div>
+</header>
+
+<main>
+
+<section id="top" class="hero">
+  <div class="sprinkles" aria-hidden="true" data-sprinkles="hero"></div>
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="kicker">מאפייה ביתית קטנה ומתוקה</span>
+      <h1>אפינו לכם <span style="white-space: nowrap;">משהו <span class="hl">מתוק.<svg aria-hidden="true" viewBox="0 0 200 20" preserveAspectRatio="none"><path d="M3 13 C 30 3, 52 3, 72 11 S 112 21, 132 10 S 172 3, 197 12" fill="none" stroke="#D9B48F" stroke-width="7" stroke-linecap="round"/></svg></span></span></h1>
+      <p>מאפים ביתיים שאנחנו אופים במטבח שלנו, בדיוק כמו שאנחנו אוהבים לאכול אותם. בוחרים, מזמינים, ואוספים.</p>
+      <div class="hero-actions">
+        <a href="#gallery" class="btn btn-primary">לגלריית המאפים</a>
+        <a href="#order" class="btn btn-ghost">להזמין עכשיו</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>איסוף ממודיעין, שכונת משואה</span>
+        <span class="chip"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>הזמנה 3 ימים מראש</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-blob"><img src="images/chocolate-rolls.jpg" alt="מגולגלות שוקולד בקופסת קרטון, עם שוקולד חלב לטבילה"></div>
+      <div class="stamp" aria-hidden="true">נאפה<br>באהבה</div>
+      <div class="mini-polaroid">
+        <span class="tape" aria-hidden="true"></span>
+        <img src="images/kids.jpg" alt="מיקה ומתיו">
+        <div>מיקה ומתיו</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="drip" aria-hidden="true" viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#F3E8D8" d="M0 0H1440V24C1400 24 1392 64 1370 64C1348 64 1350 24 1300 24H1180C1150 24 1152 52 1132 52C1112 52 1112 24 1090 24H900C870 24 868 74 842 74C816 74 818 24 790 24H600C574 24 574 48 556 48C538 48 538 24 512 24H330C300 24 300 66 276 66C252 66 254 24 226 24H120C96 24 96 50 78 50C60 50 60 24 36 24H0Z"/></svg>
+
+<div class="ribbon-wrap" aria-hidden="true"><div class="ribbon" id="ribbon"></div></div>
+
+<section id="gallery" class="wrap gallery">
+  <div class="gallery-head">
+    <div>
+      <span class="kicker">מה יצא לנו מהתנור</span>
+      <h2 class="h2">המאפים שלנו</h2>
+      <p>בוחרים מאפה, לוחצים על "להזמין", ואנחנו כבר מתחילים לערבב.</p>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="סינון לפי סוג"></div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <button type="button" class="btn btn-ghost more" id="more"></button>
+</section>
+
+<section id="bento" class="wrap bento">
+  <div class="bento-box">
+    <div class="soon" aria-hidden="true">בקרוב!</div>
+    <div class="bento-text">
+      <span class="kicker">משהו חדש בתנור</span>
+      <h2>עוגות בנטו</h2>
+      <p>עוגות קטנות ומעוצבות בקופסה. רוצים לשמוע ראשונים כשזה מוכן? כתבו לנו.</p>
+    </div>
+    <a href="#order" class="btn btn-primary" data-pick="עוגת בנטו (בקרוב)">תעדכנו אותי</a>
+  </div>
+</section>
+
+<section id="bakers" class="wrap">
+  <div class="bakers-box">
+    <div class="bakers-text">
+      <span class="kicker">נעים להכיר</span>
+      <h2 class="h2" style="font-size: clamp(36px, 4vw, 58px); line-height: 1.08;">האופים שמאחורי המאפים</h2>
+      <p>הכל התחיל במטבח של אמא, שאופה הכי טוב בעולם (סליחה, כל שאר האמהות). עמדנו לידה, ליקקנו קערות, ולאט לאט התחלנו לאפות בעצמנו. ואז גילינו את הסוד הכי מתוק: אין דבר יותר כיף מלראות מישהו נוגס במשהו שאפינו ומחייך. אז החלטנו להמשיך לאפות, ולשמח כמה שיותר אנשים.</p>
+      <p class="quote">״מבטיחים שטעמנו רק עוגייה אחת מכל מגש. בערך.״</p>
+    </div>
+    <div class="bakers-photo">
+      <figure class="polaroid" style="margin: 0;">
+        <span class="tape" aria-hidden="true"></span>
+        <img src="images/kids.jpg" alt="מיקה ומתיו במטבח, ליד המאפים שלהם" loading="lazy">
+        <figcaption class="names">מיקה ומתיו</figcaption>
+        <div class="ages"><span>מיקה, גיל 11</span><span>מתיו, גיל 14</span></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="wrap how">
+  <div class="how-head">
+    <span class="kicker">פשוט וקל</span>
+    <h2 class="h2">איך מזמינים?</h2>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><h3>בוחרים מאפה</h3><p>מהגלריה למעלה, או מספרים לנו על רעיון משלכם.</p></div>
+    <div class="step"><span class="step-num">2</span><h3>שולחים הזמנה</h3><p>בטופס למטה או בוואטסאפ. אנחנו חוזרים אליכם לאישור.</p></div>
+    <div class="step"><span class="step-num">3</span><h3>אוספים ונהנים</h3><p>איסוף ממודיעין, שכונת משואה, 3 ימים אחרי ההזמנה.</p></div>
+  </div>
+</section>
+
+<section id="order" class="wrap order">
+  <div class="order-box">
+    <div class="sprinkles" aria-hidden="true" data-sprinkles="order"></div>
+    <div class="order-info">
+      <div>
+        <span class="kicker">בואו נאפה לכם משהו</span>
+        <h2 class="h2">רוצים להזמין?</h2>
+        <p>ממלאים את הטופס או כותבים לנו בוואטסאפ, ואנחנו חוזרים אליכם לאישור ההזמנה.</p>
+      </div>
+      <ul class="contact">
+        <li>
+          <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span><small>טלפון</small><strong><a href="tel:+972546235236" dir="ltr">054-6235236</a></strong></span>
+        </li>
+        <li>
+          <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span><small>איסוף עצמי</small><strong>מודיעין, שכונת משואה</strong></span>
+        </li>
+        <li>
+          <span class="ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <span><small>כמה זמן מראש</small><strong>3 ימים לפני</strong></span>
+        </li>
+      </ul>
+      <a href="https://wa.me/972546235236" class="btn btn-ghost" style="align-self: flex-start;" target="_blank" rel="noopener"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>לכתוב לנו בוואטסאפ</a>
+    </div>
+
+    <form class="form" id="order-form" novalidate>
+      <h3>טופס הזמנה</h3>
+      <div class="fields">
+        <label>שם מלא<input type="text" name="name" autocomplete="name" required></label>
+        <label>מה בא לכם?<select name="item" id="item-select" required><option value="">בחרו מאפה</option></select></label>
+        <label>כמות<input type="number" name="qty" min="1" value="1"></label>
+        <label>תאריך איסוף<input type="date" name="date" id="date-input"></label>
+      </div>
+      <label>הערות<textarea name="notes" rows="3" placeholder="אלרגיות, הקדשה על העוגה, כל מה שחשוב לדעת"></textarea></label>
+      <button type="submit" class="btn btn-primary">שליחת ההזמנה בוואטסאפ</button>
+      <p class="form-note">ייפתח וואטסאפ עם ההזמנה מוכנה. נשאר רק ללחוץ "שלח", ואנחנו חוזרים אליכם לאישור ולתיאום תשלום.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="scallop" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="footer-brand">
+      <a href="#top" class="sticker sticker-lg" aria-label="מי-מה מתוקים, לראש הדף"><b>מי-מה</b><i>מתוקים</i></a>
+      <span>נאפה באהבה במודיעין</span>
+    </div>
+    <nav aria-label="תפריט תחתון">
+      <a href="#gallery">המאפים</a>
+      <a href="#bakers">האופים</a>
+      <a href="#how">איך מזמינים</a>
+      <a href="#order">צרו קשר</a>
+    </nav>
+    <span class="copy">© 2026 מי-מה מתוקים</span>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script>
+(function () {
+  var products = window.PRODUCTS || [];
+  var phone = window.WHATSAPP_NUMBER || '972546235236';
+  var FIRST = 9;
+  var tints = ['#F3E8D8', '#EADBC6', '#F7EFE4', '#E9D9C3', '#EFE2CF'];
+  var tilts = [-1.5, 1.2, -0.7, 1.4, -1.1, 0.9];
+  var state = { filter: 'all', showAll: false };
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  // Sprinkles
+  var sc = ['#8B5E3C', '#C9A27E', '#FFFFFF', '#B88B62', '#6F4A2F', '#E3D0B8'];
+  var pts = {
+    hero: [[8,3,0],[16,46,1],[5,62,2],[24,95,3],[40,1,4],[70,44,5],[62,97,0],[86,6,1],[90,40,2],[82,60,3],[34,54,4],[74,30,2],[48,90,0],[94,86,1],[12,24,2],[56,14,3]],
+    order: [[6,4,0],[12,48,2],[88,8,3],[92,52,4],[8,92,2],[50,96,1],[94,94,0],[4,70,3]]
+  };
+  document.querySelectorAll('[data-sprinkles]').forEach(function (box) {
+    (pts[box.getAttribute('data-sprinkles')] || []).forEach(function (p, i) {
+      var s = el('span', 'sprinkle');
+      s.style.top = p[0] + '%';
+      s.style.right = p[1] + '%';
+      s.style.width = (16 + (i % 3) * 4) + 'px';
+      s.style.background = sc[p[2]];
+      s.style.transform = 'rotate(' + ((i * 47) % 180) + 'deg)';
+      box.appendChild(s);
+    });
+  });
+
+  // Ribbon
+  var words = ['עוגיות', 'מגולגלות', 'פאי לימון', 'בראוניז', 'טרמיסו', 'סינבון', 'בקרוב: עוגות בנטו'];
+  var ribbon = document.getElementById('ribbon');
+  for (var k = 0; k < 18; k++) ribbon.appendChild(el('span', null, words[k % words.length]));
+
+  // Filters
+  var cats = ['הכל', 'עוגיות', 'עוגות', 'מאפים', 'קינוחים'];
+  var filtersBox = document.getElementById('filters');
+  cats.forEach(function (c, i) {
+    var b = el('button', null, c);
+    b.type = 'button';
+    b.dataset.cat = i === 0 ? 'all' : c;
+    b.addEventListener('click', function () { state.filter = b.dataset.cat; render(); });
+    filtersBox.appendChild(b);
+  });
+
+  // Gallery
+  var grid = document.getElementById('grid');
+  var more = document.getElementById('more');
+  more.textContent = 'לכל ' + products.length + ' המאפים';
+  more.addEventListener('click', function () { state.showAll = true; render(); });
+
+  function card(p, n) {
+    var a = el('article', 'card');
+    a.style.transform = 'rotate(' + tilts[n % tilts.length] + 'deg)';
+    var tape = el('span', 'tape');
+    tape.setAttribute('aria-hidden', 'true');
+    tape.style.background = n % 2 ? 'rgba(216, 191, 163, .7)' : 'rgba(201, 162, 126, .5)';
+    tape.style.transform = 'translateX(-50%) rotate(' + (n % 2 ? 3 : -3) + 'deg)';
+    a.appendChild(tape);
+
+    var photo = el('div', 'card-photo');
+    photo.style.background = tints[n % tints.length];
+    if (p.img) {
+      var img = el('img');
+      img.src = 'images/' + p.img;
+      img.alt = p.name;
+      img.loading = 'lazy';
+      photo.appendChild(img);
+    } else {
+      photo.appendChild(el('span', null, 'תמונה בקרוב'));
+    }
+    photo.appendChild(el('span', 'card-cat', p.cat));
+    a.appendChild(photo);
+
+    var body = el('div', 'card-body');
+    body.appendChild(el('h3', null, p.name));
+    var row = el('div', 'card-row');
+    var price = el('div', 'price');
+    price.appendChild(el('b', null, (p.price !== '' && p.price != null ? p.price : '[מחיר]') + ' ₪'));
+    if (p.unit) price.appendChild(el('span', null, p.unit));
+    row.appendChild(price);
+    var order = el('a', 'btn card-order', 'להזמין');
+    order.href = '#order';
+    order.dataset.pick = p.name;
+    row.appendChild(order);
+    body.appendChild(row);
+    a.appendChild(body);
+    return a;
+  }
+
+  function render() {
+    filtersBox.querySelectorAll('button').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.cat === state.filter));
+    });
+    var list = products.filter(function (p) { return state.filter === 'all' || p.cat === state.filter; });
+    var limited = state.filter === 'all' && !state.showAll && list.length > FIRST;
+    if (limited) list = list.slice(0, FIRST);
+    grid.innerHTML = '';
+    list.forEach(function (p) { grid.appendChild(card(p, products.indexOf(p))); });
+    more.hidden = !limited;
+  }
+  render();
+
+  // Order form
+  var select = document.getElementById('item-select');
+  products.forEach(function (p) {
+    var o = el('option', null, p.name);
+    o.value = p.name;
+    select.appendChild(o);
+  });
+  ['עוגת בנטו (בקרוב)', 'משהו אחר'].forEach(function (t) {
+    var o = el('option', null, t);
+    o.value = t;
+    select.appendChild(o);
+  });
+
+  // Pickup date: earliest is 3 days from today
+  var dateInput = document.getElementById('date-input');
+  var d = new Date();
+  d.setDate(d.getDate() + 3);
+  dateInput.min = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+
+  // "Order" buttons pre-select the pastry
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-pick]');
+    if (t) select.value = t.dataset.pick;
+  });
+
+  document.getElementById('order-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target.elements;
+    if (!f['name'].value.trim()) { f['name'].focus(); return; }
+    if (!f['item'].value) { f['item'].focus(); return; }
+    var lines = [
+      'היי מי-מה מתוקים! אני רוצה להזמין:',
+      '',
+      'שם: ' + f['name'].value.trim(),
+      'מאפה: ' + f['item'].value,
+      'כמות: ' + (f['qty'].value || 1)
+    ];
+    if (f['date'].value) {
+      var parts = f['date'].value.split('-');
+      lines.push('תאריך איסוף: ' + parts[2] + '/' + parts[1] + '/' + parts[0]);
+    }
+    if (f['notes'].value.trim()) lines.push('הערות: ' + f['notes'].value.trim());
+    window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+  });
+})();
+</script>
+</body>
+</html>
