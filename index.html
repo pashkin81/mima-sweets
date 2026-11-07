@@ -11,7 +11,7 @@
 <meta property="og:image" content="images/chocolate-rolls.jpg">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="he_IL">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%238B5E3C'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial' font-weight='700' font-size='32' fill='%23fff'%3E%D7%9E%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Fredoka:wght@500;600;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
@@ -53,16 +53,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .sprinkle { position: absolute; height: 7px; border-radius: 7px; pointer-events: none; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* Sticker logo */
-.sticker { display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; background: var(--accent); transform: rotate(-8deg); box-shadow: 0 3px 0 rgba(43, 26, 18, .2); outline: 1.5px dashed rgba(255, 255, 255, .75); text-decoration: none; }
-.sticker b { font-family: var(--display); font-weight: 700; color: #fff; line-height: 1; }
-.sticker i { font-family: var(--hand); font-style: normal; font-weight: 700; color: var(--latte); line-height: .95; }
-.sticker-sm { width: 64px; height: 64px; outline-offset: -4px; }
-.sticker-sm b { font-size: 17px; }
-.sticker-sm i { font-size: 13px; }
-.sticker-lg { width: 104px; height: 104px; outline-offset: -6px; }
-.sticker-lg b { font-size: 28px; }
-.sticker-lg i { font-size: 21px; }
+/* Logo */
+.logo { display: block; flex: none; border-radius: 50%; }
+.logo img { display: block; width: 100%; height: 100%; }
+.logo-sm { width: 64px; height: 64px; }
+.logo-lg { width: 104px; height: 104px; }
 
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 10; background: rgba(243, 232, 216, .95); backdrop-filter: blur(6px); }
@@ -272,7 +267,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 
 <header class="site-header">
   <div class="wrap">
-    <a href="#top" class="sticker sticker-sm" aria-label="מי-מה מתוקים, לראש הדף"><b>מי-מה</b><i>מתוקים</i></a>
+    <a href="#top" class="logo logo-sm" aria-label="מי-מה מתוקים, לראש הדף"><img src="images/logo.svg" width="64" height="64" alt=""></a>
     <nav class="nav" aria-label="תפריט ראשי">
       <a href="#gallery">המאפים</a>
       <a href="#bakers">האופים</a>
@@ -465,7 +460,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
   <div class="scallop" aria-hidden="true"></div>
   <div class="wrap">
     <div class="footer-brand">
-      <a href="#top" class="sticker sticker-lg" aria-label="מי-מה מתוקים, לראש הדף"><b>מי-מה</b><i>מתוקים</i></a>
+      <a href="#top" class="logo logo-lg" aria-label="מי-מה מתוקים, לראש הדף"><img src="images/logo.svg" width="104" height="104" alt=""></a>
       <span>נאפה באהבה במודיעין</span>
     </div>
     <nav aria-label="תפריט תחתון">
